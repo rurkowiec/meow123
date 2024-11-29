@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona główna</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <h1>Witaj, Tomasz Mróz</h1>
+            </div>
+            <div class="header-right">
+                <p>Białystok, <span id="current-date"></span></p>
+            </div>
+        </header>
+        <main>
+            <div class="content">
+                <div class="text-box">
+                    <p>OwO</p>
+                </div>
+                <div class="multiplication-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <!-- Nagłówki kolumn od 1 do 10 -->
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                                <th>6</th>
+                                <th>7</th>
+                                <th>8</th>
+                                <th>9</th>
+                                <th>10</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Wiersze tabliczki mnożenia -->
+                            <script>
+                                for (let i = 1; i <= 10; i++) {
+                                    document.write('<tr>');
+                                    document.write(`<th>${i}</th>`); // Pierwsza kolumna w wierszu (liczba)
+                                    for (let j = 1; j <= 10; j++) {
+                                        document.write(`<td>${i * j}</td>`); // Wyniki mnożenia
+                                    }
+                                    document.write('</tr>');
+                                }
+                            </script>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="boxes">
+                <div class="box">
+                    <img src="reklama1.jpg">
+                </div>
+                <div class="box">
+                    <img src="rojas.jpeg">
+                </div>
+                <div class="box">
+                    <img src="papaj.jpeg">
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        // Funkcja do wyświetlania aktualnej daty
+        function setCurrentDate() {
+            const dateElement = document.getElementById('current-date');
+            const today = new Date();
+            const formattedDate = today.toLocaleDateString('pl-PL', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+            dateElement.textContent = formattedDate;
+        }
+
+        // Wywołanie funkcji po załadowaniu strony
+        setCurrentDate();
+    </script>
+</body>
+</html>
